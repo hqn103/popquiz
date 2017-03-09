@@ -1,7 +1,11 @@
 package sample;
 
+import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 public class Controller {
@@ -12,9 +16,17 @@ public class Controller {
 
     @FXML private Label actiontarget;
     @FXML private Label lbl_question;
+    @FXML private ToggleGroup toggleGroupAnswer;
 
     @FXML protected void handleNextButtonAction(MouseEvent mouseEvent) {
-        lbl_question.setText(questions[0]);
+        lbl_question.setText(questions[1]);
         actiontarget.setText(questions[1]);
     }
+
+    @FXML protected void handleAnswerSelectedAction(MouseEvent mouseEvent) {
+        RadioButton clickButton = (RadioButton) mouseEvent.getSource();
+        actiontarget.setText(clickButton.getId());
+    }
+
+
 }

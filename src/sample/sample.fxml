@@ -24,16 +24,15 @@
             <Label fx:id="lbl_question" layoutX="35.0" layoutY="35.0" prefHeight="17.0" prefWidth="343.0" text="Which group of American Indians used bison as a resource?" />
             <Pane layoutX="35.0" layoutY="71.0" prefHeight="82.0" prefWidth="200.0">
                <children>
-                   <RadioButton id="answer_1_a" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="99.0" text="Powhatan">
+                   <RadioButton id="answer_1_a" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#handleAnswerSelectedAction" prefHeight="17.0" prefWidth="99.0" text="Powhatan">
                      <toggleGroup>
-                        <ToggleGroup fx:id="q1" />
-                     </toggleGroup>
-                   </RadioButton>
-                   <RadioButton id="answer_1_b" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" text="Pueblo" toggleGroup="$q1" />
-                   <RadioButton id="answer_1_c" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" text="Lakota" toggleGroup="$q1" />
+                        <ToggleGroup fx:id="toggleGroupAnswer" />
+                     </toggleGroup></RadioButton>
+                   <RadioButton id="answer_1_b" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#handleAnswerSelectedAction" text="Pueblo" toggleGroup="$toggleGroupAnswer" />
+                   <RadioButton id="answer_1_c" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#handleAnswerSelectedAction" text="Lakota" toggleGroup="$toggleGroupAnswer" />
                </children>
             </Pane>
-            <Label fx:id="actiontarget" layoutX="179.0" layoutY="209.0" prefHeight="17.0" prefWidth="109.0" text="Label" />
+            <Label fx:id="actiontarget" layoutX="68.0" layoutY="209.0" prefHeight="17.0" prefWidth="325.0" text="Label" />
          </children>
       </Pane>
       <Button mnemonicParsing="false" onMouseClicked="#handleNextButtonAction" text="Next" GridPane.rowIndex="2" />
