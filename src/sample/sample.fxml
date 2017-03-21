@@ -3,38 +3,40 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" prefHeight="311.0" prefWidth="496.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane id="question1" prefHeight="277.0" prefWidth="439.0">
-         <children>
-            <Label fx:id="lbl_question" layoutX="35.0" layoutY="35.0" prefHeight="17.0" prefWidth="343.0" text="Which group of American Indians used bison as a resource?" />
-            <Pane layoutX="35.0" layoutY="71.0" prefHeight="82.0" prefWidth="200.0">
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="494.0" prefWidth="560.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="278.0">
                <children>
-                   <RadioButton id="answer_1_a" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#handleAnswerSelectedAction" prefHeight="17.0" prefWidth="99.0" text="Powhatan">
+                  <Label fx:id="txtQuestion" layoutX="35.0" layoutY="52.0" prefHeight="17.0" prefWidth="494.0" text="Label" />
+                  <RadioButton fx:id="choiceA" layoutX="35.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#selectAnswer" text="pick A">
                      <toggleGroup>
-                        <ToggleGroup fx:id="toggleGroupAnswer" />
+                        <ToggleGroup fx:id="answer_1" />
                      </toggleGroup></RadioButton>
-                   <RadioButton id="answer_1_b" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#handleAnswerSelectedAction" text="Pueblo" toggleGroup="$toggleGroupAnswer" />
-                   <RadioButton id="answer_1_c" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#handleAnswerSelectedAction" text="Lakota" toggleGroup="$toggleGroupAnswer" />
-               </children>
-            </Pane>
-            <Label fx:id="actiontarget" layoutX="68.0" layoutY="209.0" prefHeight="17.0" prefWidth="325.0" text="Label" />
-         </children>
-      </Pane>
-      <Button mnemonicParsing="false" onMouseClicked="#handleNextButtonAction" text="Next" GridPane.rowIndex="2" />
+                  <RadioButton fx:id="choiceB" layoutX="35.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#selectAnswer" text="pick B" toggleGroup="$answer_1" />
+                  <RadioButton fx:id="choiceC" layoutX="35.0" layoutY="148.0" mnemonicParsing="false" onMouseClicked="#selectAnswer" text="pick C" toggleGroup="$answer_1" />
+                  <Button fx:id="next" layoutX="402.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#nextQuestion" text="Next" />
+                  <Button fx:id="previous" layoutX="331.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#previousQuestion" text="Previous" />
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label fx:id="displayResult" layoutX="65.0" layoutY="51.0" prefHeight="17.0" prefWidth="409.0" text="Label" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </GridPane>
